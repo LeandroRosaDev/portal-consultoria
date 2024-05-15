@@ -1,5 +1,6 @@
 import { userGetAction } from '@/actions/user/user-get-action';
 import { Conta } from '@/interfaces/user-data-types';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function Menu() {
@@ -15,37 +16,58 @@ export default async function Menu() {
   } else conta.autorizado = true;
 
   return (
-    <>
-      <h1>{data.nome}</h1>
-      <ul>
-        <li>
-          <Link href="/">Página Inicial</Link>
-        </li>
-        <li>
-          {conta.autorizado ? data.nome : <Link href="/login">Login</Link>}
-        </li>
-        <li>
-          {conta.autorizado ? (
-            <Link href="/processo"> Processo </Link>
-          ) : (
-            <p></p>
-          )}
-        </li>
-        <li>
-          {conta.autorizado ? (
-            <Link href="/informacoes"> Acompanhe seu processo</Link>
-          ) : (
-            <p></p>
-          )}
-        </li>
-        <li>
-          {conta.autorizado ? (
-            <Link href="/contato"> Entre em Contato </Link>
-          ) : (
-            <p></p>
-          )}
-        </li>
-      </ul>
-    </>
+    <main className="text-txt-menu-color ml-5 flex h-full">
+      <div>
+        <div className="text-white mt-5">
+          <Image
+            src="/assets/perfil.jpg"
+            width={100}
+            height={100}
+            alt="perfil"
+            className=" rounded-lg"
+          />
+          <h1 className="text-xl">Samantha{data.nome}</h1>
+          <p className="text-xs">samantha@gmail.com</p>
+        </div>
+        <div className="h-full m-auto">
+          <ul className="flex flex-col text-xl gap-4">
+            <li>
+              {conta.autorizado ? (
+                <Link href="/">Ínicio</Link>
+              ) : (
+                <Link href="/login">Login</Link>
+              )}
+            </li>
+            <li>
+              {conta.autorizado ? (
+                <Link href="/processo">Processo</Link>
+              ) : (
+                <></>
+              )}
+            </li>
+            <li>
+              {conta.autorizado ? (
+                <Link href="/documentos">Documentos</Link>
+              ) : (
+                <></>
+              )}
+            </li>
+            <li>
+              {conta.autorizado ? <Link href="/duvidas">Dúvidas</Link> : <></>}
+            </li>
+            <li>
+              {conta.autorizado ? (
+                <Link href="/conta">Minha conta</Link>
+              ) : (
+                <></>
+              )}
+            </li>
+          </ul>
+        </div>
+        <div>
+          <button className="text-xl">Sair</button>
+        </div>
+      </div>
+    </main>
   );
 }

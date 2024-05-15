@@ -15,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={mainFontFamily.className}>
+      <body
+        className={` bg-menu-color flex justify-between ${mainFontFamily.className}`}
+      >
         <Menu />
         {children}
       </body>

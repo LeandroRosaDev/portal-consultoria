@@ -18,6 +18,9 @@
   .input {
     @apply bg-sky-500;
   }
+  .bg-menu {
+    @apply bg-white w-[85vw] h-[95vh] my-5 rounded-3xl p-10 mr-3;
+  }
 }
 
 * {
@@ -29,5 +32,4 @@
   font: inherit;
   vertical-align: baseline;
   line-height: 1;
-  scroll-behavior: smooth;
 }
