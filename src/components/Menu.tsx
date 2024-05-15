@@ -1,6 +1,6 @@
-import { userGetAction } from "@/actions/user/user-get-action";
-import { Conta } from "@/interfaces/user-data-types";
-import Link from "next/link";
+import { userGetAction } from '@/actions/user/user-get-action';
+import { Conta } from '@/interfaces/user-data-types';
+import Link from 'next/link';
 
 export default async function Menu() {
   const { data } = await userGetAction();
@@ -8,7 +8,7 @@ export default async function Menu() {
 
   let conta: Conta = {
     autorizado: false,
-    nome: " ",
+    nome: ' ',
   };
   if (data.nome === undefined) {
     conta.autorizado = true;
