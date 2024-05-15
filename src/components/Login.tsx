@@ -1,16 +1,27 @@
-"use client";
+'use client';
 
-import { loginAction } from "@/actions/login/login-action";
-import { Button } from "./Button";
+import { loginAction } from '@/actions/login/login-action';
+import { Button } from './Button';
+import Input from './Input';
 
 export default function Login() {
   return (
-    <form action={loginAction}>
-      <label htmlFor="username">Usuário</label>
-      <input type="text" id="username" name="username" />
-      <label htmlFor="password">Senha</label>
-      <input type="password" id="password" name="password" />
-      <Button>Entrar</Button>
+    <form action={loginAction} className="flex flex-col gap-4">
+      <Input
+        placeholder="Insira seu nome ou e-mail"
+        name="username"
+        id="password"
+        type="text"
+      />
+      <Input
+        placeholder="Insira sua senha"
+        name="password"
+        id="password"
+        type="password"
+      />
+      <button className="bg-blue-500 w-52 text-lg h-8 font-bold text-white rounded-md mx-auto">
+        Entrar
+      </button>
     </form>
   );
 }
