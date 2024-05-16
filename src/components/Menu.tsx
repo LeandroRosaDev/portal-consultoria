@@ -1,7 +1,7 @@
-import { userGetAction } from '@/actions/user/user-get-action';
-import { Conta } from '@/interfaces/user-data-types';
-import Image from 'next/image';
-import Link from 'next/link';
+import { userGetAction } from "@/actions/user/user-get-action";
+import { Conta } from "@/interfaces/user-data-types";
+import Image from "next/image";
+import Link from "next/link";
 
 export default async function Menu() {
   const { data } = await userGetAction();
@@ -9,7 +9,7 @@ export default async function Menu() {
 
   let conta: Conta = {
     autorizado: false,
-    nome: ' ',
+    nome: " ",
   };
   if (data.nome === undefined) {
     conta.autorizado = true;
@@ -30,10 +30,10 @@ export default async function Menu() {
           <p className="text-xs">samantha@gmail.com</p>
         </div>
         <div className="h-full m-auto">
-          <ul className="flex flex-col text-xl gap-4">
+          <ul className="flex flex-col text-xl gap-6 mt-10">
             <li>
               {conta.autorizado ? (
-                <Link href="/">Ínicio</Link>
+                <Link href="/">Início</Link>
               ) : (
                 <Link href="/login">Login</Link>
               )}
