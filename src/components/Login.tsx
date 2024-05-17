@@ -6,7 +6,7 @@ import Input from './Input';
 
 export default function Login() {
   return (
-    <form action={loginAction} className="flex flex-col gap-4">
+    <form action={loginAction} className="flex flex-col gap-7">
       <Input
         placeholder="Insira seu nome ou e-mail"
         name="username"
@@ -19,7 +19,7 @@ export default function Login() {
         id="password"
         type="password"
       />
-      <button className="bg-blue-500 w-52 text-lg h-8 font-bold text-white rounded-md mx-auto">
+      <button className="bg-blue-500 w-60 text-xl h-8 font-bold text-white rounded-md mx-auto">
         Entrar
       </button>
     </form>

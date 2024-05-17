@@ -11,7 +11,7 @@ export default function Input({ placeholder, ...props }: InputProps) {
         {...props}
         name={props.name}
         id={props.id}
-        className="w-64 h-12 pb-5 pl-2 bg-[#CFCFCF] rounded-md border-none placeholder-gray-600 outline-gray-400"
+        className="w-72 h-14 pb-5 pl-2 bg-[#CFCFCF] rounded-md border-none placeholder-gray-600 outline-gray-400 text-lg"
         placeholder={placeholder}
       />
     </div>
