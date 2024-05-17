@@ -1,73 +1,32 @@
-import { userGetAction } from "@/actions/user/user-get-action";
-import { Conta } from "@/interfaces/user-data-types";
-import Image from "next/image";
-import Link from "next/link";
+import { userGetAction } from '@/actions/user/user-get-action';
+import Image from 'next/image';
+import { ButtonLogout } from './ButtonLogout';
+import { MenuList } from './MenuList';
 
 export default async function Menu() {
   const { data } = await userGetAction();
-  console.log(data);
-
-  let conta: Conta = {
-    autorizado: false,
-    nome: " ",
-  };
-  if (data.nome === undefined) {
-    conta.autorizado = true;
-  } else conta.autorizado = true;
 
   return (
-    <main className="text-txt-menu-color ml-5 flex h-full">
-      <div>
-        <div className="text-white mt-5">
-          <Image
-            src="/assets/perfil.jpg"
-            width={100}
-            height={100}
-            alt="perfil"
-            className=" rounded-lg"
-          />
-          <h1 className="text-xl">Samantha{data.nome}</h1>
-          <p className="text-xs">samantha@gmail.com</p>
-        </div>
-        <div className="h-full m-auto">
-          <ul className="flex flex-col text-xl gap-6 mt-10">
-            <li>
-              {conta.autorizado ? (
-                <Link href="/">Início</Link>
-              ) : (
-                <Link href="/login">Login</Link>
-              )}
-            </li>
-            <li>
-              {conta.autorizado ? (
-                <Link href="/processo">Processo</Link>
-              ) : (
-                <></>
-              )}
-            </li>
-            <li>
-              {conta.autorizado ? (
-                <Link href="/documentos">Documentos</Link>
-              ) : (
-                <></>
-              )}
-            </li>
-            <li>
-              {conta.autorizado ? <Link href="/duvidas">Dúvidas</Link> : <></>}
-            </li>
-            <li>
-              {conta.autorizado ? (
-                <Link href="/conta">Minha conta</Link>
-              ) : (
-                <></>
-              )}
-            </li>
-          </ul>
-        </div>
-        <div>
-          <button className="text-xl">Sair</button>
-        </div>
-      </div>
-    </main>
+    <>
+      {data.id ? (
+        <main className="text-txt-menu-color ml-8 grid grid-cols-1 grid-rows-3 h-full">
+          <div className="text-white mt-10">
+            <Image
+              src="/assets/perfil.jpg"
+              width={80}
+              height={80}
+              alt="foto perfil"
+              className="rounded-lg mb-3 h-[80px] object-cover object-center"
+            />
+            <h1 className="text-2xl mb-1">{data.nome}</h1>
+            <p className="text-sm">{data.email}</p>
+          </div>
+          {data.id ? <MenuList /> : <></>}
+          <div className="self-end">{data.id ? <ButtonLogout /> : <></>}</div>
+        </main>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
