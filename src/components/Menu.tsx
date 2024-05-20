@@ -22,7 +22,9 @@ export default async function Menu() {
             <p className="text-sm">{data.email}</p>
           </div>
           {data.id ? <MenuList /> : <></>}
-          <div className="self-end">{data.id ? <ButtonLogout /> : <></>}</div>
+          <div className="self-end mb-5 text-xl hover:text-red-400">
+            {data.id ? <ButtonLogout /> : <></>}
+          </div>
         </main>
       ) : (
         <></>

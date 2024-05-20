@@ -4,42 +4,44 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 export const MenuList = () => {
-  const [clicked, setClicked] = useState(false);
+  const [clickedItem, setClickedItem] = useState<number | null>(null);
 
-  const handleClick = () => {
-    setClicked(!clicked);
+  const handleClick = (index: number) => {
+    setClickedItem(index);
   };
 
-  const data = 'oi';
   return (
     <div className="h-full">
       <ul className="flex flex-col text-xl gap-5 mt-10">
-        <li className={`${data ? 'hover:text-white' : ''}`}>
+        <li
+          className={`text-xl ${clickedItem === 0 ? 'text-white' : ''}`}
+          onClick={() => handleClick(0)}
+        >
           <Link href="/">Início</Link>
         </li>
-        <li className="hover:text-white">
-          <Link
-            href="/processo"
-            className={`text-xl ${clicked === true ? 'text-white' : ''}`}
-            onClick={handleClick}
-          >
-            Processo
-          </Link>
+        <li
+          className={`text-xl ${clickedItem === 1 ? 'text-white' : ''}`}
+          onClick={() => handleClick(1)}
+        >
+          <Link href="/processo">Processo</Link>
         </li>
-        <li className="hover:text-white">
-          <Link href="/documentos" className="focus:text-white">
-            Documentos
-          </Link>
+        <li
+          className={`text-xl ${clickedItem === 2 ? 'text-white' : ''}`}
+          onClick={() => handleClick(2)}
+        >
+          <Link href="/documentos">Documentos</Link>
         </li>
-        <li className="hover:text-white">
-          <Link href="/duvidas" className="focus:text-white">
-            Dúvidas
-          </Link>
+        <li
+          className={`text-xl ${clickedItem === 3 ? 'text-white' : ''}`}
+          onClick={() => handleClick(3)}
+        >
+          <Link href="/duvidas">Dúvidas</Link>
         </li>
-        <li className="hover:text-white">
-          <Link href="/conta" className="focus:text-white">
-            Minha conta
-          </Link>
+        <li
+          className={`text-xl ${clickedItem === 4 ? 'text-white' : ''}`}
+          onClick={() => handleClick(4)}
+        >
+          <Link href="/conta">Minha conta</Link>
         </li>
       </ul>
     </div>
