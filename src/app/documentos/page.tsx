@@ -1,3 +1,7 @@
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Portal Altuori | Serviços",
+};
 export default async function InformacoesPage() {
   return (
     <main className="bg-menu">
