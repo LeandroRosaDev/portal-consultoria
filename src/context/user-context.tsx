@@ -1,7 +1,7 @@
 'use client';
 
-// import logout from '@/actions/login/logout-action';
-// import validateToken from '@/validate/validate-token'
+import logout from '@/actions/login/logout-action';
+import validateToken from '@/actions/validate/validate-token';
 
 import React, { useContext, useState } from 'react';
 
@@ -16,6 +16,7 @@ type User = {
   username: string;
   email: string;
   advogado: boolean;
+  token: string;
 };
 
 const UserContext = React.createContext<IUserContext | null>(null);
@@ -37,15 +38,19 @@ export function UserContextProvider({
 }) {
   const [userState, setUser] = useState<User | null>(user);
 
-  // Validate token :
-
-  // React.useEffect(() => {
-  //   async function validate() {
-  //     const {ok} = await validateToken()
-  //     if(!ok) await logout()
-  //   }
-  // if(userState) validate()
-  // }, [userState])
+  React.useEffect(() => {
+    async function validate() {
+      if (!userState?.token) return;
+      try {
+        const { ok } = await validateToken();
+        if (!ok) await logout();
+      } catch (error) {
+        console.error('Erro ao validar token:', error);
+        await logout();
+      }
+    }
+    if (userState) validate();
+  }, [userState]);
 
   return (
     <UserContext.Provider value={{ user: userState, setUser }}>

@@ -19,7 +19,7 @@ export async function middleware(request: NextRequest) {
   }
 
   if (authenticated && pathname.startsWith('/login')) {
-    return NextResponse.redirect(new URL('/conta', request.url));
+    return NextResponse.redirect(new URL('/', request.url));
   }
 
   return NextResponse.next();

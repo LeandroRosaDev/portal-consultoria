@@ -33,10 +33,9 @@ export async function loginAction(formData: FormData) {
       httpOnly: true,
       expires: expirationTime,
     });
-
-    redirect('/');
   } catch (error) {
     console.error('Erro durante o login:', error);
     throw error;
   }
+  redirect('/');
 }
