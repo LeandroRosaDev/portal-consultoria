@@ -1,9 +1,14 @@
-import Link from 'next/link';
+import Inicio from '@/components/Inicio/InfoInicio';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Portal Altuori | Home',
+};
 
 export default function Home() {
   return (
-    <main className="bg-menu">
-      <h1 className="text-center text-5xl">Início</h1>
+    <main>
+      <Inicio />
     </main>
   );
 }

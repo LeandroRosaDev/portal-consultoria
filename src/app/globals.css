@@ -3,21 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-  .btn {
-    @apply bg-sky-500;
-  }
-
-  .title {
-    @apply bg-sky-500;
-  }
-
-  .subTitle {
-    @apply bg-sky-500;
-  }
-
-  .input {
-    @apply bg-sky-500;
-  }
   .bg-menu {
     @apply bg-white w-[85vw] h-[95vh] my-5 rounded-3xl p-10 ml-14;
   }
