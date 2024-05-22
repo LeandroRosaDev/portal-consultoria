@@ -3,17 +3,25 @@ import { NextResponse, type NextRequest } from 'next/server';
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
   const authenticated = token ? true : false;
-  const protectedPaths = ['/conta', '/processo', '/documentos'];
+  const { pathname } = request.nextUrl;
+
+  const protectedPaths = ['/conta', '/processo', '/servicos'];
   const isProtectedPath = protectedPaths.some((path) =>
-    request.nextUrl.pathname.startsWith(path),
+    pathname.startsWith(path),
   );
 
-  if (!authenticated && isProtectedPath) {
-    return NextResponse.redirect(new URL('/login', request.url));
+  if (!authenticated) {
+    if (pathname === '/') {
+      return NextResponse.redirect(new URL('/login', request.url));
+    } else if (isProtectedPath) {
+      return NextResponse.redirect(new URL('/login', request.url));
+    }
   }
-  if (authenticated && request.nextUrl.pathname.startsWith('/login')) {
+
+  if (authenticated && pathname.startsWith('/login')) {
     return NextResponse.redirect(new URL('/conta', request.url));
   }
+
   return NextResponse.next();
 }
 
@@ -22,7 +30,7 @@ export const config = {
     '/',
     '/conta/:path*',
     '/processo/:path*',
-    '/documentos/:path*',
+    '/servicos/:path*',
     '/login',
   ],
 };

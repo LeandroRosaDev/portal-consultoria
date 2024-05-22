@@ -4,14 +4,18 @@ type InputProps = React.ComponentProps<'input'> & {
   placeholder: string;
 };
 
-export default function Input({ placeholder, ...props }: InputProps) {
+export default function Input({
+  placeholder,
+  className,
+  ...props
+}: InputProps) {
   return (
     <div>
       <input
         {...props}
         name={props.name}
         id={props.id}
-        className="w-72 h-14 pb-5 pl-2 bg-[#CFCFCF] rounded-md border-none placeholder-gray-600 outline-gray-400 text-lg"
+        className={`pb-5 pl-2 bg-[#CFCFCF] rounded-md border-none placeholder-gray-600 outline-gray-400 text-lg ${className}`}
         placeholder={placeholder}
       />
     </div>
