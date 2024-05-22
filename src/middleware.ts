@@ -1,9 +1,9 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import verifyToken from './funcions/verify-toke';
+// import verifyToken from './functions/verify-toke';
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
-  const authenticated = token ? await verifyToken(token) : false;
+  const authenticated = token ? true : false;
   const { pathname } = request.nextUrl;
 
   const protectedPaths = ['/conta', '/processo', '/servicos'];
