@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-type InputProps = React.ComponentProps<'input'> & {
+type InputProps = React.ComponentProps<"input"> & {
   placeholder: string;
 };
 

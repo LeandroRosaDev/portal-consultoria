@@ -1,32 +1,32 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { loginAction } from '@/actions/login/login-action';
-import Input from './Input';
+import React, { useState } from "react";
+import { loginAction } from "@/actions/login/login-action";
+import Input from "../Input";
 
 export default function Login() {
-  const [formError, setFormError] = useState('');
+  const [formError, setFormError] = useState("");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    const username = formData.get('username') as string;
-    const password = formData.get('password') as string;
+    const username = formData.get("username") as string;
+    const password = formData.get("password") as string;
 
     if (!username || !password) {
-      setFormError('Todos os campos são obrigatórios');
+      setFormError("Todos os campos são obrigatórios");
       return;
     }
 
-    setFormError('');
+    setFormError("");
 
     try {
       await loginAction(formData);
     } catch (error) {
       setFormError(
-        'Falha ao fazer login. Verifique suas credenciais e tente novamente.',
+        "Falha ao fazer login. Verifique suas credenciais e tente novamente."
       );
     }
   };

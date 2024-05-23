@@ -1,7 +1,7 @@
-'use client';
-import { useUser } from '@/context/user-context';
-import Image from 'next/image';
-import { Data } from '../Data';
+"use client";
+import { useUser } from "@/context/user-context";
+import Image from "next/image";
+import { Data } from "../Data";
 
 export default function Inicio() {
   const { user } = useUser();
@@ -17,7 +17,7 @@ export default function Inicio() {
         <div className="m-5 flex justify-between">
           <h2 className="font-extrabold text-blue-color-text">Documentos</h2>
           <Image
-            src={'assets/icon/docs.svg'}
+            src={"assets/icon/docs.svg"}
             width={20}
             height={20}
             alt="Icon docs"

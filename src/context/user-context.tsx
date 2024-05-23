@@ -1,22 +1,14 @@
-'use client';
+"use client";
 
-import logout from '@/actions/login/logout-action';
-import validateToken from '@/actions/validate/validate-token';
+import logout from "@/actions/login/logout-action";
+import validateToken from "@/actions/validate/validate-token";
+import { User } from "@/interfaces/user-data-types";
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from "react";
 
 type IUserContext = {
   user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
-};
-
-type User = {
-  id: number;
-  nome: string;
-  username: string;
-  email: string;
-  advogado: boolean;
-  token: string;
 };
 
 const UserContext = React.createContext<IUserContext | null>(null);
@@ -24,7 +16,7 @@ const UserContext = React.createContext<IUserContext | null>(null);
 export const useUser = () => {
   const context = useContext(UserContext);
   if (context === null) {
-    throw new Error('useContext deve estar dentro do Provider');
+    throw new Error("useContext deve estar dentro do Provider");
   }
   return context;
 };
@@ -45,7 +37,7 @@ export function UserContextProvider({
         const { ok } = await validateToken();
         if (!ok) await logout();
       } catch (error) {
-        console.error('Erro ao validar token:', error);
+        console.error("Erro ao validar token:", error);
         await logout();
       }
     }
