@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Input from "../Input";
+import Input from "../FormComponentes/Input";
 import { loginCadastroAction } from "@/actions/login/login-cadastro-action";
-import { Button } from "../Button";
+import { Button } from "../FormComponentes/Button";
 
 export default function CadastrarLogin() {
   return (

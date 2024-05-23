@@ -11,7 +11,7 @@ export default async function LoginPage() {
       <div className="flex gap-4 text-lg text-gray-500   left-1/2 text-center mt-12">
         <Link href="/login">Esqueceu a senha?</Link>
         <hr className="w-[1px] h-8 bg-gray-800"></hr>
-        <Link href="/login">Cadastre-se</Link>
+        <Link href="/login/cadastrar">Cadastre-se</Link>
       </div>
     </section>
   );

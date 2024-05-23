@@ -18,6 +18,7 @@ export default function GetDocumentos() {
         <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Telefone: ${user?.telefone}`}</h1>
         <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Gênero: ${user?.genero}`}</h1>
         <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Serviço contratado: ${user?.servico}`}</h1>
+        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Como nos encontrou: ${user?.origem}`}</h1>
       </div>
     </main>
   );

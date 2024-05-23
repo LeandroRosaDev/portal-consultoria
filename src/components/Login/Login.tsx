@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { loginAction } from "@/actions/login/login-action";
-import Input from "../Input";
+import Input from "../FormComponentes/Input";
 
 export default function Login() {
   const [formError, setFormError] = useState("");
