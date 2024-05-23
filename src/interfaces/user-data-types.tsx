@@ -15,6 +15,7 @@ export type User = {
   tipo_acesso?: number;
   servico?: number;
   token?: string;
+  profile_picture_attachment_id?: string;
 };
 
 export type Conta = {
