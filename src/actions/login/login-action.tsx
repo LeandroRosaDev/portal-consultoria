@@ -2,7 +2,6 @@
 import apiError from '@/functions/api-error';
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 
 export async function loginAction(state: {}, formData: FormData) {
   const username = (formData.get('username') as string) || null;
@@ -30,9 +29,7 @@ export async function loginAction(state: {}, formData: FormData) {
       expires: expirationTime,
     });
 
-    // revalidatePath('/');
-    // redirect('/');
-
+    revalidatePath('/');
     return { data: null, ok: true, error: '' };
   } catch (error: unknown) {
     return apiError(error);
