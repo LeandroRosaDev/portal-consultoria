@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { url } from "@/functions/url";
 
 export async function loginAction(formData: FormData) {
   const credentials = {
@@ -10,16 +11,13 @@ export async function loginAction(formData: FormData) {
   };
 
   try {
-    const response = await fetch(
-      "https://apiconsultoria.altuori.com/wp-json/jwt-auth/v1/token/",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      }
-    );
+    const response = await fetch(url + "wp-json/jwt-auth/v1/token/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
+    });
 
     if (!response.ok) {
       throw new Error("Falha ao fazer login. Verifique suas credenciais.");
