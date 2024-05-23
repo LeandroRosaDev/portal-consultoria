@@ -1,39 +1,24 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { loginAction } from "@/actions/login/login-action";
-import Input from "../FormComponentes/Input";
+import React from 'react';
+import { loginAction } from '@/actions/login/login-action';
+import Input from '../FormComponentes/Input';
+import { Button } from '../FormComponentes/Button';
+import { useFormState } from 'react-dom';
 
 export default function Login() {
-  const [formError, setFormError] = useState("");
+  const [state, action] = useFormState(loginAction, {
+    ok: false,
+    error: '',
+    data: null,
+  });
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    const username = formData.get("username") as string;
-    const password = formData.get("password") as string;
-
-    if (!username || !password) {
-      setFormError("Todos os campos são obrigatórios");
-      return;
-    }
-
-    setFormError("");
-
-    try {
-      await loginAction(formData);
-    } catch (error) {
-      setFormError(
-        "Falha ao fazer login. Verifique suas credenciais e tente novamente."
-      );
-    }
-  };
+  React.useEffect(() => {
+    if (state.ok) window.location.href = '/';
+  }, [state.ok]);
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-7">
-      {formError && <p className="text-red-500">{formError}</p>}
+    <form action={action} className="flex flex-col gap-7">
       <Input
         placeholder="Insira seu nome ou e-mail"
         name="username"
@@ -50,9 +35,10 @@ export default function Login() {
         required
         className="w-72"
       />
-      <button className="bg-blue-500 w-60 text-xl h-8 font-bold text-white rounded-md mx-auto">
+      <Button className="bg-blue-500 w-60 text-xl h-8 font-bold text-white rounded-md mx-auto">
         Entrar
-      </button>
+      </Button>
+      <p>{state.error}</p>
     </form>
   );
 }
