@@ -1,27 +1,23 @@
 "use server";
+import apiError from "@/functions/api-error";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-import { url } from "@/functions/url";
 
-export async function loginAction(formData: FormData) {
-  const credentials = {
-    username: formData.get("username") as string,
-    password: formData.get("password") as string,
-  };
+export async function loginAction(state: {}, formData: FormData) {
+  const username = (formData.get("username") as string) || null;
+  const password = (formData.get("password") as string) || null;
 
   try {
-    const response = await fetch(url + "wp-json/jwt-auth/v1/token/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    });
+    if (!username || !password) throw new Error("Preencha os dados.");
+    const response = await fetch(
+      "https://apiconsultoria.altuori.com/wp-json/jwt-auth/v1/token/",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
 
-    if (!response.ok) {
-      throw new Error("Falha ao fazer login. Verifique suas credenciais.");
-    }
+    if (!response.ok) throw new Error("Senha ou usuário inválidos.");
 
     const data = await response.json();
     const expirationTime = new Date();
@@ -32,11 +28,10 @@ export async function loginAction(formData: FormData) {
       httpOnly: true,
       expires: expirationTime,
     });
-  } catch (error) {
-    console.error("Erro durante o login:", error);
-    throw error;
-  }
 
-  redirect("/");
-  revalidatePath("/");
+    revalidatePath("/");
+    return { data: null, ok: true, error: "" };
+  } catch (error: unknown) {
+    return apiError(error);
+  }
 }

@@ -1,9 +1,10 @@
 import { NextResponse, type NextRequest } from 'next/server';
-// import verifyToken from './functions/verify-toke';
+import verifyToken from './functions/verify-toke';
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
-  const authenticated = token ? true : false;
+  const authenticated = token ? await verifyToken(token) : false;
+
   const { pathname } = request.nextUrl;
 
   const protectedPaths = ['/conta', '/processo', '/servicos'];
@@ -22,7 +23,6 @@ export async function middleware(request: NextRequest) {
   if (authenticated && pathname.startsWith('/login')) {
     return NextResponse.redirect(new URL('/', request.url));
   }
-
   return NextResponse.next();
 }
 
