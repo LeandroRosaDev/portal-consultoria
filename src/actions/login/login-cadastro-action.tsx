@@ -4,7 +4,7 @@ import { url } from "@/functions/url";
 
 export async function loginCadastroAction(formData: FormData) {
   try {
-    const response = await fetch(url + "wp-json/api/usuario", {
+    const response = await fetch(url + "/wp-json/api/usuario", {
       method: "POST",
       body: formData,
     });

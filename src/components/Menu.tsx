@@ -1,14 +1,16 @@
-import { userGetAction } from '@/actions/user/user-get-action';
-import Image from 'next/image';
-import { ButtonLogout } from './ButtonLogout';
-import { MenuList } from './MenuList';
+import { userGetAction } from "@/actions/user/user-get-action";
+import Image from "next/image";
+import { ButtonLogout } from "./ButtonLogout";
+import { MenuList } from "./MenuList";
+import getToken from "@/actions/get-token-action";
 
 export default async function Menu() {
   const { data } = await userGetAction();
+  const token = await getToken();
 
   return (
     <>
-      {data.id ? (
+      {token ? (
         <main className="text-txt-menu-color ml-8 grid grid-cols-1 grid-rows-3 h-full">
           <div className="text-white mt-10">
             <Image

@@ -2,6 +2,7 @@
 import apiError from "@/functions/api-error";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
+import { url } from "@/functions/url";
 
 export async function loginAction(state: {}, formData: FormData) {
   const username = (formData.get("username") as string) || null;
@@ -9,13 +10,10 @@ export async function loginAction(state: {}, formData: FormData) {
 
   try {
     if (!username || !password) throw new Error("Preencha os dados.");
-    const response = await fetch(
-      "https://apiconsultoria.altuori.com/wp-json/jwt-auth/v1/token/",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+    const response = await fetch(url + "/wp-json/jwt-auth/v1/token/", {
+      method: "POST",
+      body: formData,
+    });
 
     if (!response.ok) throw new Error("Senha ou usuário inválidos.");
 
