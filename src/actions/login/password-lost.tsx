@@ -9,16 +9,20 @@ export default async function passwordLost(state: {}, formData: FormData) {
   try {
     if (!login) throw new Error('Preencha os dados.');
 
-    const response = await fetch('https://apiconsultoria.altuori.com/api/password/lost', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      'https://apiconsultoria.altuori.com/api/password/lost',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          login,
+          url: urlPerdeu,
+        }),
       },
-      body: JSON.stringify({
-        login,
-        url: urlPerdeu,
-      }),
-    });
+    );
+
     if (!response.ok) throw new Error('Email ou usuário não cadastrado.');
     return { data: null, ok: true, error: '' };
   } catch (error: unknown) {

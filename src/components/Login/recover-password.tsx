@@ -30,11 +30,9 @@ export default function RecuperarSenha() {
       />
 
       <input type="hidden" name="url" value={url} />
-
       <Button className="bg-blue-500 w-60 text-xl h-8 font-bold text-white rounded-md mx-auto">
         Enviar
       </Button>
-
       {state.ok && <p className="text-red-600">Email enviado.</p>}
     </form>
   );
