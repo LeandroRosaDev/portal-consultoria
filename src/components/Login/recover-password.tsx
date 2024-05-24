@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Input from '../FormComponentes/Input';
 import { Button } from '../FormComponentes/Button';
 import { useFormState } from 'react-dom';
@@ -12,12 +12,14 @@ export default function RecuperarSenha() {
     data: null,
   });
 
-  React.useEffect(() => {
-    if (state.ok) window.location.href = '/login';
-  }, [state.ok]);
+  const [url, setUrl] = useState('');
+
+  useEffect(() => {
+    setUrl(window.location.href.replace('recuperar', 'resetar'));
+  }, []);
 
   return (
-    <form className="flex flex-col gap-7">
+    <form action={action} className="flex flex-col gap-7">
       <Input
         placeholder="Insira o seu e-mail"
         name="login"
@@ -26,14 +28,14 @@ export default function RecuperarSenha() {
         required
         className="w-80 mb-12"
       />
-      <input
-        type="hidden"
-        name="url"
-        value={`${window.location.href.replace('recuperar', 'resetar')}`}
-      />
+
+      <input type="hidden" name="url" value={url} />
+
       <Button className="bg-blue-500 w-60 text-xl h-8 font-bold text-white rounded-md mx-auto">
         Enviar
       </Button>
+
+      {state.ok && <p className="text-red-600">Email enviado.</p>}
     </form>
   );
 }
