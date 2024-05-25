@@ -1,6 +1,7 @@
 import { Data } from "@/components/Data";
-import GetDocumentos from "@/components/Servicos/GetDocumentos";
+import PostDocuments from "@/components/Servicos/PostDocuments";
 import { Metadata } from "next";
+import Link from "next/link";
 export const metadata: Metadata = {
   title: "Portal Altuori | Enviar Documentação",
 };
@@ -11,7 +12,8 @@ export default async function EnviarocPage() {
         Enviar documentação
       </h1>
       <Data />
-      <GetDocumentos />
+      <PostDocuments />
+      <Link href="/servicos">Voltar</Link>
     </main>
   );
 }

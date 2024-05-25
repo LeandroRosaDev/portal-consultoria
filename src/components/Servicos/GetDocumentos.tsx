@@ -1,24 +1,39 @@
 "use client";
-import { useUser } from "@/context/user-context";
+import { documentGetAction } from "@/actions/processData/document-get-action";
+import { InfoProcess } from "@/interfaces/process-data-types";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function GetDocumentos() {
-  const { user } = useUser();
+  const [documents, setDocuments] = useState<InfoProcess[]>([]);
+
+  useEffect(() => {
+    async function loadDocuments() {
+      const { data } = await documentGetAction();
+      console.log(data);
+
+      setDocuments(data);
+    }
+    loadDocuments();
+  }, []);
 
   return (
     <main>
       <div className="m-10">
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Nome: ${user?.nome}`}</h1>
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Email: ${user?.email}`}</h1>
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Cep: ${user?.cep}`}</h1>
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Nível de acesso: ${user?.tipo_acesso}`}</h1>
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Complemento: ${user?.complemento}`}</h1>
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Bairro: ${user?.bairro}`}</h1>
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Cidade: ${user?.cidade}`}</h1>
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Estado: ${user?.estado}`}</h1>
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Telefone: ${user?.telefone}`}</h1>
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Gênero: ${user?.genero}`}</h1>
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Serviço contratado: ${user?.servico}`}</h1>
-        <h1 className="text-xl font-semibold mb-2 text-blue-color-text">{`Como nos encontrou: ${user?.origem}`}</h1>
+        {documents.map((document) => (
+          <div key={document.id}>
+            <h1>Nome do documento: {document.nome}</h1>
+            <h1>Tipo do documento: {document.tipo_documento}</h1>
+            {/* {document.fotos && document.fotos.length > 0 && (
+              <Image
+                src={document.fotos[1].src}
+                alt={`Imagem de ${document.nome}`}
+                width={100}
+                height={100}
+              />
+            )} */}
+          </div>
+        ))}
       </div>
     </main>
   );

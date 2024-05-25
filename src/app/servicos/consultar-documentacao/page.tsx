@@ -1,6 +1,7 @@
 import { Data } from "@/components/Data";
 import GetDocumentos from "@/components/Servicos/GetDocumentos";
 import { Metadata } from "next";
+import Link from "next/link";
 export const metadata: Metadata = {
   title: "Portal Altuori | Consultar Documentação",
 };
@@ -12,6 +13,7 @@ export default async function ConsultarDocPage() {
       </h1>
       <Data />
       <GetDocumentos />
+      <Link href="/servicos">Voltar</Link>
     </main>
   );
 }
