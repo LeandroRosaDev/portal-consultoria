@@ -1,8 +1,8 @@
-import { userGetAction } from "@/actions/user/user-get-action";
-import Image from "next/image";
-import { ButtonLogout } from "./ButtonLogout";
-import { MenuList } from "./MenuList";
-import getToken from "@/actions/get-token-action";
+import { userGetAction } from '@/actions/user/user-get-action';
+import Image from 'next/image';
+import { ButtonLogout } from './ButtonLogout';
+import { MenuList } from './MenuList';
+import getToken from '@/actions/get-token-action';
 
 export default async function Menu() {
   const { data } = await userGetAction();
@@ -26,7 +26,7 @@ export default async function Menu() {
           {data.id ? <MenuList /> : <></>}
 
           <div className="self-end mb-5 text-xl hover:text-red-400 w-9">
-            {data.id ? <ButtonLogout /> : <></>}
+            {data.id ? <ButtonLogout>Sair</ButtonLogout> : <></>}
           </div>
         </main>
       ) : (
