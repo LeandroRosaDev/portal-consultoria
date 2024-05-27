@@ -15,7 +15,7 @@ export default function Input({
         {...props}
         name={props.name}
         id={props.id}
-        className={`pb-5 pl-2 bg-[#CFCFCF] rounded-md border-none placeholder-gray-600 outline-gray-400 text-lg ${className}`}
+        className={`input ${className}`}
         placeholder={placeholder}
       />
     </div>

@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useUser } from '@/context/user-context';
-import Input from '../FormComponentes/Input';
-import { useState } from 'react';
-import { editUserInfo } from '@/actions/user/user-put-action';
-import { Button } from '../FormComponentes/Button';
+import { useUser } from "@/context/user-context";
+import Input from "../FormComponentes/Input";
+import { useState } from "react";
+import { editUserInfo } from "@/actions/user/user-put-action";
+import { Button } from "../FormComponentes/Button";
 
 export const InfoConta = () => {
   const { user } = useUser();

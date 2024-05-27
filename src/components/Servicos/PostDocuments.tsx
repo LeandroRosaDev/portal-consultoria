@@ -36,9 +36,7 @@ export default function PostDocuments() {
         className="w-72"
       />
 
-      <Button className="bg-blue-500 w-60 text-xl h-8 font-bold text-white rounded-md mx-auto">
-        Enviar
-      </Button>
+      <Button>Enviar</Button>
     </form>
   );
 }

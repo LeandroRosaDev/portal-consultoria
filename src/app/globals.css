@@ -6,6 +6,21 @@
   .bg-menu {
     @apply bg-white w-[85vw] h-[95vh] my-5 rounded-3xl p-10 ml-14;
   }
+  .btn {
+    @apply bg-blue-500 w-auto px-5 py-2 text-xl h-auto font-bold text-white rounded-md mx-auto;
+  }
+  .input {
+    @apply pb-5 pl-2 bg-[#CFCFCF] rounded-md border-none placeholder-gray-600 outline-gray-400 text-lg;
+  }
+  .title {
+    @apply text-7xl font-semibold mb-2 text-blue-color-text;
+  }
+  .sub-title {
+    @apply text-5xl font-semibold mb-2 text-blue-color-text my-5;
+  }
+  .min-title {
+    @apply text-3xl font-semibold mb-2 text-blue-color-text my-5;
+  }
 }
 
 * {

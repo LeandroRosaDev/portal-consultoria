@@ -4,21 +4,21 @@ export const Data = () => {
   const currentMonth = date.getMonth();
   const currentYear = date.getFullYear();
   const monthNames: string[] | number = [
-    'Janeiro',
-    'Fevereiro',
-    'Março',
-    'Abril',
-    'Maio',
-    'Junho',
-    'Julho',
-    'Agosto',
-    'Setembro',
-    'Outubro',
-    'Novembro',
-    'Dezembro',
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+    "Julho",
+    "Agosto",
+    "Setembro",
+    "Outubro",
+    "Novembro",
+    "Dezembro",
   ];
   return (
-    <p className="text-txt-menu-color font-light text-sm ml-2">
+    <p className="text-txt-menu-color font-light text-sm m-5">
       {today} - {monthNames[currentMonth]}, {currentYear}
     </p>
   );

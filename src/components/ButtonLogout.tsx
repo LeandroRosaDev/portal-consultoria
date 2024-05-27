@@ -1,6 +1,6 @@
-'use client';
-import { useFormStatus } from 'react-dom';
-import logout from '@/actions/login/logout-action';
+"use client";
+import { useFormStatus } from "react-dom";
+import logout from "@/actions/login/logout-action";
 
 export function ButtonLogout({ children, className }: any) {
   const status = useFormStatus();
