@@ -1,11 +1,23 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Input from "../FormComponentes/Input";
-import { loginCadastroAction } from "@/actions/login/login-cadastro-action";
-import { Button } from "../FormComponentes/Button";
+import React, { FormEvent, useState } from 'react';
+import Input from '../FormComponentes/Input';
+import { loginCadastroAction } from '@/actions/login/login-cadastro-action';
+import { Button } from '../FormComponentes/Button';
 
 export default function CadastrarLogin() {
+  const [senha, setSenha] = useState('');
+  const [confirmSenha, setConfirmSenha] = useState('');
+  const [error, setError] = useState('');
+
+  const handleBlur = () => {
+    if (senha !== confirmSenha) {
+      setError('As senhas não coincidem.');
+    } else {
+      setError('');
+    }
+  };
+
   return (
     <form
       action={loginCadastroAction}
@@ -34,7 +46,22 @@ export default function CadastrarLogin() {
         type="password"
         required
         className="w-72"
+        value={senha}
+        onChange={(e) => setSenha(e.target.value)}
+        onBlur={handleBlur}
       />
+      <Input
+        placeholder="Confirme sua senha"
+        name="confirmSenha"
+        id="confirmSenha"
+        type="password"
+        required
+        className="w-72"
+        value={confirmSenha}
+        onChange={(e) => setConfirmSenha(e.target.value)}
+        onBlur={handleBlur}
+      />
+      {error && <p className="text-red-500">{error}</p>}
       <Input
         placeholder="Rua"
         name="rua"
