@@ -36,6 +36,7 @@ export default function PostDocuments() {
       <SelectInput
         name="Selecione"
         options={[
+          { value: "", label: "Selecione" },
           { value: "AC", label: "Acre (AC)" },
           { value: "AL", label: "Alagoas (AL)" },
           { value: "AP", label: "Amapá (AP)" },
