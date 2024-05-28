@@ -2,7 +2,7 @@ import { SaibaMaisInicio } from './SaibaMaisInicio';
 
 export const ProcessosInicio = () => {
   return (
-    <div className="w-[400px] bg-[#F9FAFC] rounded-r-3xl flex flex-col justify-between items-center ">
+    <div className="w-[400px] bg-[#F9FAFC] rounded-r-3xl flex flex-col justify-between items-center">
       <div className="mt-20">
         <h1 className="text-3xl font-black italic text-blue-color-text">
           Processos
