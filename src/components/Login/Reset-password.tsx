@@ -60,9 +60,7 @@ export default function ResetarSenha({
 
       <input type="hidden" name="login" value={login} />
       <input type="hidden" name="key" value={keyToken} />
-      <Button className="bg-blue-500 w-60 text-xl h-8 font-bold text-white rounded-md mx-auto">
-        Enviar
-      </Button>
+      <Button className="xl:w-40 2xl:w-52">Enviar</Button>
     </form>
   );
 }

@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import React from "react";
-import { loginAction } from "@/actions/login/login-action";
-import Input from "../FormComponentes/Input";
-import { Button } from "../FormComponentes/Button";
-import { useFormState } from "react-dom";
+import React from 'react';
+import { loginAction } from '@/actions/login/login-action';
+import Input from '../FormComponentes/Input';
+import { Button } from '../FormComponentes/Button';
+import { useFormState } from 'react-dom';
 
 export default function Login() {
   const [state, action] = useFormState(loginAction, {
     ok: false,
-    error: "",
+    error: '',
     data: null,
   });
 
   React.useEffect(() => {
-    if (state.ok) window.location.href = "/login";
+    if (state.ok) window.location.href = '/login';
   }, [state.ok]);
 
   return (
@@ -35,7 +35,7 @@ export default function Login() {
         required
         className="w-72"
       />
-      <Button>Entrar</Button>
+      <Button className="btn xl:w-40 2xl:w-52">Entrar</Button>
       <p>{state.error}</p>
     </form>
   );
