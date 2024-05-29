@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FormEvent, useState } from 'react';
+import React, { useState } from 'react';
 import Input from '../FormComponentes/Input';
 import { loginCadastroAction } from '@/actions/login/login-cadastro-action';
 import { Button } from '../FormComponentes/Button';
@@ -164,9 +164,7 @@ export default function CadastrarLogin() {
           className="w-44 xl:w-52 2xl:w-64"
         />
       </div>
-      <Button className="bg-blue-500 w-60 text-xl h-8 font-bold text-white rounded-md mt-5">
-        Criar
-      </Button>
+      <Button className="btn xl:w-40 2xl:w-52">Criar</Button>
     </form>
   );
 }

@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default async function CadastrarLoginPage() {
   return (
     <section className="bg-menu relative grid gap-4 xl:gap-7 2xl:gap-10 content-center text-center justify-items-center">
-      <div>
+      <div className="overflow-auto">
         <h1 className="text-4xl xl:text-6xl 2xl:text-8xl font-bold mb-4 xl:mb-10 2xl:mb-16">
           Cadastre-se
         </h1>
