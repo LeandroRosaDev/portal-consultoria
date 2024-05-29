@@ -9,6 +9,8 @@ import RadioInput from "../FormComponentes/RadioInput";
 import SelectInput from "../FormComponentes/SelectInput";
 
 export default function PostDocuments() {
+  const [data, setData] = useState("");
+  const [cep, setCep] = useState("");
   return (
     <form
       action={documentPostAction}
@@ -22,18 +24,35 @@ export default function PostDocuments() {
         required
         className="w-72"
       />
+
       <Input
         placeholder="Tipo do documento"
         name="tipo_documento"
         id="tipo_documento"
-        type="text"
+        type="date"
         required
         className="w-72"
       />
-      <InputFile type="file" className="input-file" />
-      <RadioInput id="masculino" name="options" label="Masculino" />
-      <RadioInput id="feminino" name="options" label="Feminino" />
-      <SelectInput
+      <Input
+        mask="99/99/9999"
+        value={data}
+        onChange={(e) => setData(e.target.value)}
+        placeholder="Data de Nascimento"
+        name="data"
+        className="w-72"
+      />
+      <Input
+        mask="99999-999"
+        value={cep}
+        onChange={(e) => setCep(e.target.value)}
+        placeholder="CEP"
+        name="cep"
+        className="w-72"
+      />
+      <InputFile type="file" name="foto" className="input-file" />
+      {/* <RadioInput id="masculino" name="options" label="Masculino" />
+      <RadioInput id="feminino" name="options" label="Feminino" /> */}
+      {/* <SelectInput
         name="Selecione"
         options={[
           { value: "", label: "Selecione" },
@@ -65,7 +84,7 @@ export default function PostDocuments() {
           { value: "SE", label: "Sergipe (SE)" },
           { value: "TO", label: "Tocantins (TO)" },
         ]}
-      />
+      /> */}
 
       <Button>Enviar</Button>
     </form>

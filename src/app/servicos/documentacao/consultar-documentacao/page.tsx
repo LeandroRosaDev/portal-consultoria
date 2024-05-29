@@ -1,8 +1,8 @@
 import { ButtonBack } from "@/components/ButtonBack";
 import { Data } from "@/components/Data";
+import GetDuvidas from "@/components/Duvidas/GetDuvidas";
 import GetDocumentos from "@/components/Servicos/GetDocumentos";
 import { Metadata } from "next";
-import Link from "next/link";
 export const metadata: Metadata = {
   title: "Portal Altuori | Consultar Documentação",
 };
