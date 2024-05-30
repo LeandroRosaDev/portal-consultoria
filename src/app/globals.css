@@ -30,6 +30,10 @@
   .min-title {
     @apply text-3xl font-semibold mb-2 text-blue-color-text my-5;
   }
+  .box-quest {
+    @apply border-[1px] border-blue-300 bg-purple-100 rounded-md w-56 h-14 hover:bg-red-50 cursor-pointer flex items-center text-center font-bold gap-2 justify-center
+    lg:w-64 lg:h-20;
+  }
 }
 
 * {
