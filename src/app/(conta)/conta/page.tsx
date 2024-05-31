@@ -1,9 +1,9 @@
-import { HeadConta } from '@/components/Conta/HeadConta';
-import { InfoConta } from '@/components/Conta/InfoConta';
-import { Metadata } from 'next';
+import { HeadConta } from "@/components/Conta/HeadConta";
+import { InfoConta } from "@/components/Conta/InfoConta";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Portal Altuori | Minha Conta',
+  title: "Portal Altuori | Minha Conta",
 };
 
 export default async function contaPage() {

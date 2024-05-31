@@ -1,8 +1,9 @@
-import { userGetAction } from '@/actions/user/user-get-action';
-import Image from 'next/image';
-import { ButtonLogout } from './ButtonLogout';
-import { MenuList } from './MenuList';
-import getToken from '@/actions/get-token-action';
+import { userGetAction } from "@/actions/user/user-get-action";
+import Image from "next/image";
+import { ButtonLogout } from "./ButtonLogout";
+import { MenuList } from "./MenuList";
+import getToken from "@/actions/get-token-action";
+import GetProfilePicture from "./Conta/GetProfilePicture";
 
 export default async function Menu() {
   const { data } = await userGetAction();
@@ -13,13 +14,7 @@ export default async function Menu() {
       {token ? (
         <main className="text-txt-menu-color ml-8 grid grid-cols-1 grid-rows-3 h-full">
           <div className="text-white mt-10">
-            <Image
-              src="/assets/perfil.jpg"
-              width={80}
-              height={80}
-              alt="foto perfil"
-              className="rounded-lg mb-3 h-[80px] object-cover object-center"
-            />
+            <GetProfilePicture width="80" height="80" />
             <h1 className="text-2xl mb-1">{data.nome}</h1>
             <p className="text-sm">{data.email}</p>
           </div>

@@ -1,4 +1,4 @@
-import { useUser } from '@/context/user-context';
+import { useUser } from "@/context/user-context";
 
 export const MinhasInfo = () => {
   const { user } = useUser();
@@ -11,7 +11,7 @@ export const MinhasInfo = () => {
           <h2 className="mb-4">Tel: {user?.telefone}</h2>
         </div>
 
-        <h2>10/04/1995</h2>
+        <h2>{user?.data_nascimento}</h2>
       </div>
 
       <div className="flex gap-20 mt-3 ml-2">
@@ -21,6 +21,7 @@ export const MinhasInfo = () => {
           <h2 className="mb-4">
             {user?.cidade}
             {user?.estado}
+            {user?.genero}
           </h2>
         </div>
 

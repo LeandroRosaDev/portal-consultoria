@@ -10,7 +10,7 @@
     @apply bg-blue-500 w-auto px-5 py-2 text-xl h-auto font-bold text-white rounded-md mx-auto;
   }
   .input {
-    @apply pb-5 pl-2 bg-[#CFCFCF] rounded-md border-none placeholder-gray-600 outline-gray-400 text-lg;
+    @apply pb-5 pl-2 bg-[#CFCFCF] rounded-md border-none placeholder-gray-600 outline-gray-400 text-lg dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-600 dark:focus:border-blue-600;
   }
   .input-file {
     @apply block w-full text-sm text-slate-500
@@ -21,6 +21,10 @@
     hover:file:bg-blue-200
     hover:file:cursor-pointer;
   }
+  .select-input {
+    @apply pb-5 pl-2 text-lg bg-[#cfcfcf] border border-gray-300 text-gray-600 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-600 dark:focus:border-blue-600;
+  }
+
   .title {
     @apply text-7xl font-semibold mb-2 text-blue-color-text;
   }

@@ -3,16 +3,15 @@
 import { url } from "@/functions/url";
 import { cookies } from "next/headers";
 
-export async function documentGetAction() {
+export async function profilePictureGetAction() {
   const token = cookies().get("token")?.value;
-  const response = await fetch(url + "/wp-json/api/servico", {
+  const response = await fetch(url + "/wp-json/api/foto", {
     method: "GET",
     headers: {
       Authorization: "Bearer " + token,
     },
   });
-  const data = await response.json();
-  console.log(data);
+  const foto = await response.json();
 
-  return { data };
+  return { foto };
 }

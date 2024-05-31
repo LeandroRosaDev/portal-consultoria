@@ -50,6 +50,19 @@ export default function CadastrarLogin() {
           required
           className="w-44 xl:w-52 2xl:w-64"
         />
+        <SelectInput
+          name="genero"
+          options={[
+            { value: "", label: "Gênero" },
+            { value: "Masculino", label: "Masculino" },
+            {
+              value: "Feminino",
+              label: "Feminino",
+            },
+            { value: "Prefiro não definir", label: "Prefiro não definir" },
+          ]}
+        />
+
         <Input
           placeholder="Data de Nascimento"
           name="data_nascimento"
@@ -176,14 +189,13 @@ export default function CadastrarLogin() {
           required
           className="w-44 xl:w-52 2xl:w-64"
         />
-        <RadioInput id="masculino" name="options" label="Masculino" />
-        <RadioInput id="feminino" name="options" label="Feminino" />
 
         <Input
           placeholder="Tipo de acesso"
           name="tipo_acesso"
           id="tipo_acesso"
           type="hidden"
+          value="usuario"
           required
           className="w-44 xl:w-52 2xl:w-64"
         />

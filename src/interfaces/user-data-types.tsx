@@ -1,6 +1,8 @@
 export type User = {
   id?: string;
   nome?: string;
+  sobrenome?: string;
+  data_nascimento?: string;
   email?: string;
   rua?: string;
   numero?: number;
@@ -11,11 +13,10 @@ export type User = {
   estado?: string;
   telefone?: number;
   genero?: number;
-  origem?: number;
-  tipo_acesso?: number;
-  servico?: number;
+  origem?: string;
+  tipo_acesso?: string;
+  servico?: string;
   token?: string;
-  profile_picture_attachment_id?: string;
 };
 
 export type Conta = {

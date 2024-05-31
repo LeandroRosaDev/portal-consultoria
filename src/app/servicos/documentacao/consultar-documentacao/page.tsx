@@ -1,4 +1,5 @@
 import { ButtonBack } from "@/components/ButtonBack";
+import GetProfilePicture from "@/components/Conta/GetProfilePicture";
 import { Data } from "@/components/Data";
 import GetDuvidas from "@/components/Duvidas/GetDuvidas";
 import GetDocumentos from "@/components/Servicos/GetDocumentos";
