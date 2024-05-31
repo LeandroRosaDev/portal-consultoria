@@ -1,5 +1,5 @@
 export type Duvidas = {
-  id?: string;
+  id?: string | number;
   nome: string;
   duvida?: string;
   resposta?: string;
