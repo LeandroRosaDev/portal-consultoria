@@ -4,7 +4,7 @@
 
 @layer components {
   .bg-menu {
-    @apply bg-white w-[85vw] h-[95vh] my-5 rounded-3xl p-10;
+    @apply bg-white w-[1080px] h-[95vh] my-5 rounded-3xl p-10;
   }
   .btn {
     @apply bg-blue-500 w-auto px-5 py-2 text-xl h-auto font-bold text-white rounded-md mx-auto;
