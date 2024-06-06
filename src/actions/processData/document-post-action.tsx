@@ -1,5 +1,4 @@
 "use server";
-import { redirect } from "next/navigation";
 import { url } from "@/functions/url";
 import { cookies } from "next/headers";
 
@@ -13,7 +12,7 @@ export async function documentPostAction(formData: FormData) {
       },
       body: formData,
     });
-    // console.log(formData);
+    console.log(formData);
   } catch (error) {
     console.error("Erro durante o login:", error);
     throw error;
