@@ -1,55 +1,24 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
-
 import { MiniCard } from './MiniCard';
+import { BigCards } from './BigCard';
 
 export const InfoConta = () => {
   return (
     <div className="flex flex-col  gap-8 mt-20 ml-10">
-      <div className="flex gap-16">
-        <Link href="/conta/editar">
-          <div className="card w-[400px] h-[450px] flex flex-col items-center justify-evenly hover:text-white hover:bg-[#333333] hover:outline-2 hover:border-white hover:shadow-cardHover duration-500">
-            <Image
-              src="/assets/cards/minhas-info.svg"
-              width={130}
-              height={130}
-              alt="Figura crachá"
-              className="mt-3"
-            />
-            <h1 className="font-semibold text-3xl">Minhas informações</h1>
-            <hr className="text-txt-menu-color rounded-md w-5/6 bg-black" />
-            <p className="text-base font-medium text-center">
-              Acesse e gerencie suas informações pessoais e configurações de
-              conta. Mantenha seus dados <br /> sempre atualizados para garantir
-              um atendimento personalizado e eficiente. Visualize e edite as
-              informações da sua conta.
-            </p>
-            <span className="text-xl font-bold">Clique aqui</span>
-          </div>
-        </Link>
-
-        <Link href="/conta/processos">
-          <div className="card w-[400px] h-[450px] flex flex-col items-center justify-evenly hover:text-white hover:bg-[#333333] hover:outline-2 hover:border-white hover:shadow-cardHover duration-500">
-            <Image
-              src="/assets/cards/meus-processos.svg"
-              width={130}
-              height={130}
-              alt="Figura pasta"
-              className="mt-3"
-            />
-            <h1 className="font-semibold text-3xl">Meus Processos</h1>
-            <hr className="text-txt-menu-color rounded-md w-5/6 bg-black" />
-            <p className="text-base font-medium text-center">
-              Acompanhe de perto o andamento dos seus <br />
-              processos jurídicos. Aqui você encontra todas as informações e
-              atualizações sobre seus casos, garantindo transparência e
-              facilidade de acesso. Visualize seus processos.
-            </p>
-            <span className="text-xl font-bold">Clique aqui</span>
-          </div>
-        </Link>
+      <div className="flex gap-20">
+        <BigCards
+          href="/conta/editar"
+          title="Minhas informações"
+          description="Acesse e gerencie suas informações pessoais e configurações de conta. Mantenha seus dados sempre atualizados para garantir um atendimento personalizado e eficiente. Visualize e edite as informações da sua conta."
+          src="/assets/cards/minhas-info.svg"
+        />
+        <BigCards
+          href="/conta/processos"
+          src="/assets/cards/meus-processos.svg"
+          title="Meus Processos"
+          description="Acompanhe de perto o andamento dos seus processos jurídicos. Aqui você encontra todas as informações e atualizações sobre seus casos, garantindo transparência e facilidade de acesso. Visualize seus processos."
+        />
       </div>
 
       <div className="card flex justify-around w-[880px] h-[80px] items-center">
