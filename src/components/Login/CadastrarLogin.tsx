@@ -59,7 +59,7 @@ export default function CadastrarLogin() {
               value: "Feminino",
               label: "Feminino",
             },
-            { value: "Prefiro não definir", label: "Prefiro não definir" },
+            { value: "Outro", label: "Prefiro não definir" },
           ]}
         />
 

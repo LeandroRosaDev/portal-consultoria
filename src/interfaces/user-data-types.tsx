@@ -12,7 +12,7 @@ export type User = {
   cidade?: string;
   estado?: string;
   telefone?: number;
-  genero?: number;
+  genero?: string;
   origem?: string;
   tipo_acesso?: string;
   servico?: string;

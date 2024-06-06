@@ -10,4 +10,5 @@ export interface InfoProcess {
   nome: string;
   tipo_documento: string;
   usuario_id: string;
+  fotos: Media[];
 }

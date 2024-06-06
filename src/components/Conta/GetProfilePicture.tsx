@@ -3,6 +3,10 @@ import { profilePictureGetAction } from "@/actions/user/user-profile-picture-get
 import { foto } from "@/interfaces/foto-types";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import { useUser } from "@/context/user-context";
+import masculino from "../../../public/assets/masculino.jpg";
+import feminino from "../../../public/assets/feminino.jpg";
+import outro from "../../../public/assets/outro.jpeg";
 
 export default function GetProfilePicture({
   className,
@@ -10,56 +14,70 @@ export default function GetProfilePicture({
   height,
   ...props
 }: any) {
-  const [profilePicture, setProfilePicture] = useState<foto[]>([]);
+  const [profilePictures, setProfilePictures] = useState<foto[]>([]);
 
   useEffect(() => {
     async function loadDocuments() {
-      const { foto }: any = await profilePictureGetAction();
-      setProfilePicture(foto);
+      const { foto }: any = await profilePictureGetAction(); // Quando o usuário não possuir foto esse valor será igual []
+      setProfilePictures(foto);
     }
     loadDocuments();
   }, []);
 
+  const { user } = useUser();
+  const genero = user?.genero;
+
+  const getDefaultImage = (genero: string) => {
+    switch (genero) {
+      case "Feminino":
+        return feminino.src;
+      case "Masculino":
+        return masculino.src;
+      case "Outro":
+      default:
+        return outro.src;
+    }
+  };
+
   return (
     <main>
-      {profilePicture.map((picture) => (
-        <div key={picture.id}>
-          {picture.fotos.map((foto) => (
-            <Image
-              key={foto.titulo}
-              {...props}
-              width={width}
-              height={height}
-              className={`rounded-full mb-3 object-cover object-center ${className}`}
-              src={foto.src}
-              alt={foto.titulo}
-            />
-          ))}
-        </div>
-      ))}
+      {profilePictures.length > 0 ? (
+        profilePictures.map((picture) => (
+          <div key={picture.id}>
+            {picture.fotos && picture.fotos.length > 0 ? (
+              picture.fotos.map((foto) => (
+                <Image
+                  key={foto.titulo}
+                  {...props}
+                  width={width}
+                  height={height}
+                  className={`rounded-full mb-3 object-cover object-center ${className}`}
+                  src={foto.src}
+                  alt={foto.titulo}
+                />
+              ))
+            ) : (
+              <Image
+                {...props}
+                width={width}
+                height={height}
+                className={`rounded-full mb-3 object-cover object-center ${className}`}
+                src={getDefaultImage(genero)}
+                alt="Default Profile"
+              />
+            )}
+          </div>
+        ))
+      ) : (
+        <Image
+          {...props}
+          width={width}
+          height={height}
+          className={`rounded-full mb-3 object-cover object-center ${className}`}
+          src={getDefaultImage(genero)}
+          alt="Default Profile"
+        />
+      )}
     </main>
-    // <>
-    //   {profilePicture[0].fotos ? (
-    //     <main>
-    //       {profilePicture.map((picture) => (
-    //         <div key={picture.titulo}>
-    //           {picture.fotos.map((foto) => (
-    //             <Image
-    //               key={foto.titulo}
-    //               {...props}
-    //               width={width}
-    //               height={height}
-    //               className={`rounded-full mb-3 object-cover object-center ${className}`}
-    //               src={foto.src}
-    //               alt={foto.titulo}
-    //             />
-    //           ))}
-    //         </div>
-    //       ))}
-    //     </main>
-    //   ) : (
-    //     <h1> Não existe foto de perfil</h1>
-    //   )}
-    // </>
   );
 }

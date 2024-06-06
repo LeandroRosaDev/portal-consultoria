@@ -12,6 +12,7 @@ export async function profilePictureGetAction() {
     },
   });
   const foto = await response.json();
+  // console.log(foto);
 
   return { foto };
 }

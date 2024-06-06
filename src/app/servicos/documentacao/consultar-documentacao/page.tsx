@@ -1,7 +1,6 @@
 import { ButtonBack } from "@/components/ButtonBack";
 import GetProfilePicture from "@/components/Conta/GetProfilePicture";
 import { Data } from "@/components/Data";
-import GetDuvidas from "@/components/Duvidas/GetDuvidas";
 import GetDocumentos from "@/components/Servicos/GetDocumentos";
 import { Metadata } from "next";
 export const metadata: Metadata = {
@@ -13,6 +12,7 @@ export default async function ConsultarDocPage() {
       <h1 className="sub-title">Consultar documentação</h1>
       <Data />
       <GetDocumentos />
+      <GetProfilePicture width={300} height={300} />
       <ButtonBack>Voltar</ButtonBack>
     </main>
   );
