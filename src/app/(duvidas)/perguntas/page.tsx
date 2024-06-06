@@ -3,7 +3,6 @@ import { Data } from '@/components/Data';
 import GetDuvidas from '@/components/Duvidas/GetDuvidas';
 
 import { Metadata } from 'next';
-// import PostDuvidas from '@/components/Duvidas/PostDuvidas';
 
 export const metadata: Metadata = {
   title: 'Portal Altuori | Dúvidas',
@@ -16,7 +15,6 @@ export default async function ContatoPage() {
       <Data />
       <div>
         <GetDuvidas />
-        {/* <PostDuvidas /> */}
       </div>
       <ButtonBack className="absolute bottom-9">Voltar</ButtonBack>
     </main>
