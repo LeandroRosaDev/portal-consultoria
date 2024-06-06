@@ -24,43 +24,54 @@ export default async function ContatoPage() {
             oferecem soluções rápidas para melhorar sua experiência de usuário.
           </p>
         </div>
-        <div className="bg-purple-50 mt-10 lg:mt-0 rounded-lg w-72 md:w-[400px] lg:w-[350px] h-72 lg:h-[550px] flex flex-col justify-between items-center p-5 text-sm lg:justify-center lg:gap-10 lg:text-2xl">
-          <div className="box-quest">
-            <Image
-              src="/assets/icon/question.svg"
-              alt="?"
-              width={20}
-              height={20}
-            />
-            <Link href="/perguntas">Perguntas</Link>
-          </div>
-          <div className="box-quest">
-            <Image
-              src="/assets/icon/contato.svg"
-              alt="?"
-              width={15}
-              height={20}
-            />
-            <Link href="/duvidas">Contato</Link>
-          </div>
-          <div className="box-quest">
-            <Image
-              src="/assets/icon/monitor.svg"
-              alt="?"
-              width={20}
-              height={20}
-            />
-            <Link href="/duvidas">Consultores</Link>
-          </div>
-          <div className="box-quest">
-            <Image
-              src="/assets/icon/user-octagon.svg"
-              alt="?"
-              width={20}
-              height={20}
-            />
-            <Link href="/duvidas">Minhas Dúvidas</Link>
-          </div>
+        <div className="bg-gray-100 mt-10 lg:mt-0 rounded-3xl w-72 shadow-xl md:w-[400px] lg:w-[350px] h-72 lg:h-[550px] flex flex-col justify-between items-center p-5 text-sm lg:justify-center lg:gap-10 lg:text-2xl">
+          <Link href="/perguntas">
+            <div className="box-quest">
+              <Image
+                src="/assets/icon/question.svg"
+                alt="icon pergunta"
+                width={20}
+                height={20}
+              />
+              Perguntas
+            </div>
+          </Link>
+
+          <Link href="/duvidas">
+            <div className="box-quest">
+              <Image
+                src="/assets/icon/contato.svg"
+                alt="icon contato"
+                width={15}
+                height={20}
+              />
+              Contato
+            </div>
+          </Link>
+
+          <Link href="/duvidas">
+            <div className="box-quest">
+              <Image
+                src="/assets/icon/monitor.svg"
+                alt="icon monitor"
+                width={20}
+                height={20}
+              />
+              Consultores
+            </div>
+          </Link>
+
+          <Link href="/duvidas">
+            <div className="box-quest">
+              <Image
+                src="/assets/icon/user-octagon.svg"
+                alt="icon perfil"
+                width={20}
+                height={20}
+              />
+              Minhas Dúvidas
+            </div>
+          </Link>
         </div>
       </section>
     </main>

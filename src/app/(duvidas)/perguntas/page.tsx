@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 
 export default async function ContatoPage() {
   return (
-    <main className="bg-menu">
+    <main className="bg-menu relative">
       <h1 className="min-title sm:sub-title 2xl:title">Perguntas Frequentes</h1>
       <Data />
       <div>
         <GetDuvidas />
         {/* <PostDuvidas /> */}
       </div>
-      <ButtonBack>Voltar</ButtonBack>
+      <ButtonBack className="absolute bottom-9">Voltar</ButtonBack>
     </main>
   );
 }
