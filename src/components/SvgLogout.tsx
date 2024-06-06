@@ -1,7 +1,6 @@
 'use client';
 
 import logout from '@/actions/login/logout-action';
-import { Button } from './FormComponentes/Button';
 import Image from 'next/image';
 
 export function SvgLogout() {

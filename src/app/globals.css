@@ -24,7 +24,6 @@
   .select-input {
     @apply pb-5 pl-2 text-lg bg-[#cfcfcf] border border-gray-300 text-gray-600 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-600 dark:focus:border-blue-600;
   }
-
   .title {
     @apply text-7xl font-semibold mb-2 text-blue-color-text;
   }
@@ -37,6 +36,12 @@
   .box-quest {
     @apply border-[1px] border-blue-300 bg-purple-100 rounded-md w-56 h-14 hover:bg-red-50 cursor-pointer flex items-center text-center font-bold gap-2 justify-center
     lg:w-64 lg:h-20;
+  }
+  .card {
+    @apply bg-card-color rounded-3xl shadow-card;
+  }
+  .mini-card {
+    @apply border border-black rounded-xl flex items-center justify-center;
   }
 }
 

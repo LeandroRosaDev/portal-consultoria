@@ -34,6 +34,7 @@ export const EditarConta = () => {
         <SvgLogout />
         <FotoConta />
       </div>
+
       <div className="absolute bottom-14">
         <ButtonBack>Voltar</ButtonBack>
       </div>
